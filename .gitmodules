@@ -2,7 +2,7 @@
 	path = beepy-kbd-2.11/module
 	url = https://github.com/HackModsOrg/beepy-kbd
 [submodule "beepy-lcd-1.0/module"]
-	path = sharp-drm-1.5/module
+	path = sharp-drm-2.0/module
 	url = https://github.com/HackModsOrg/sharp-drm-driver
 [submodule "beepy-symbol-overlay-1.0/module"]
 	path = beepy-symbol-overlay-1.2/module
