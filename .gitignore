@@ -12,3 +12,5 @@ debhelper-build-stamp
 /.vagrant
 /*/debian/files
 *.debhelper
+
+*.ddeb
