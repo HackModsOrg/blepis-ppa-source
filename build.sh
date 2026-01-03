@@ -30,3 +30,6 @@ for prod in beepy-kbd-* beepy-poll-* \
 
 	popd
 done
+
+# Let's just make sure it will be build
+dpkg-deb --root-owner-group --build blepis-meta
