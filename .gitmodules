@@ -16,3 +16,7 @@
 [submodule "impala-wifi-1.0/module"]
 	path = impala-wifi-0.3/module
 	url = git@github.com:ardangelo/impala.git
+[submodule "sharp-drm-1.5/module"]
+	url = https://github.com/HackModsOrg/sharp-drm-driver
+[submodule "beepy-kbd-2.11/module"]
+	url = https://github.com/HackModsOrg/beepy-kbd
