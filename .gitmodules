@@ -1,9 +1,9 @@
 [submodule "keyboard-driver_2.0-1_armhf/module"]
 	path = beepy-kbd-2.11/module
-	url = git@github.com:ardangelo/beepberry-keyboard-driver.git
+	url = https://github.com/HackModsOrg/beepy-kbd
 [submodule "beepy-lcd-1.0/module"]
 	path = sharp-drm-1.5/module
-	url = git@github.com:ardangelo/sharp-drm-driver.git
+	url = https://github.com/HackModsOrg/sharp-drm-driver
 [submodule "beepy-symbol-overlay-1.0/module"]
 	path = beepy-symbol-overlay-1.2/module
 	url = git@github.com:ardangelo/beepy-symbol-overlay.git
@@ -16,7 +16,3 @@
 [submodule "impala-wifi-1.0/module"]
 	path = impala-wifi-0.3/module
 	url = git@github.com:ardangelo/impala.git
-[submodule "sharp-drm-1.5/module"]
-	url = https://github.com/HackModsOrg/sharp-drm-driver
-[submodule "beepy-kbd-2.11/module"]
-	url = https://github.com/HackModsOrg/beepy-kbd
