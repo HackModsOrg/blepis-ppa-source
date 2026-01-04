@@ -31,5 +31,18 @@ for prod in beepy-kbd-* beepy-poll-* \
 	popd
 done
 
-# Let's just make sure it will be build
 dpkg-deb --root-owner-group --build blepis-meta
+
+mkdir -p public
+mkdir -p public/pool
+
+cp *.buildinfo public/pool
+cp *.changes public/pool
+cp *.deb public/pool
+cp *.dsc public/pool
+cp *.tar.gz public/pool
+
+cd public
+apt-ftparchive packages pool > Packages
+cat Packages | gzip -c9  > Packages.gz
+apt-ftparchive release . > Release
