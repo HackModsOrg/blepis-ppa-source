@@ -1,3 +1,10 @@
+beepy-kbd (3.0-1) bookworm; urgency=medium
+
+  * Added support for keyboard backlight reading
+  * Added support for USB keyboard and USB mouse modes
+
+ -- LinaLinn <blepis@0xlina.gay>  Sun, 11 Jan 2026 23:49:20 +0100
+
 beepy-kbd (2.12-1) bookworm; urgency=medium
 
   * Removed hard dependency on sharp-drm and beepy-fw

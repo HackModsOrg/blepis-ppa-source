@@ -1,5 +1,5 @@
 Source: beepy-kbd
-Maintainer: Andrew D'Angelo <dangeloandrew@outlook.com>
+Maintainer: LinaLinn <blepis@0xlina.gay>
 Build-Depends: debhelper (>= 11), dkms
 
 Package: beepy-kbd
