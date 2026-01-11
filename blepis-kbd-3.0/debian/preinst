@@ -1,0 +1,77 @@
+#!/bin/bash
+
+set -e
+
+MODULE_NAME=beepy_kbd
+VER_REG=0x01
+REQ_MAJOR=3
+REQ_MINOR=3
+SUG_MINOR=6
+RELEASE_PAGE="https://github.com/ardangelo/beepberry-rp2040/releases/tag/v$REQ_MAJOR.$SUG_MINOR"
+
+# Check for old module
+if modprobe -n bbqX0kbd 2>/dev/null; then
+	echo "error: please uninstall the old development bbqX0kbd module"
+	exit 1
+fi
+
+# Check for swap size on arm64
+#if [ "$(uname -m )" == "aarch64" ]; then
+#	. /etc/dphys-swapfile
+#	if (( CONF_SWAPSIZE < 512 )); then
+#		echo "error: CONF_SWAPSIZE detected as $CONF_SWAPSIZE"
+#		echo "Please edit /etc/dphys-swapfile, increase to at least 512, and reboot"
+#		exit 1
+#	fi
+#fi
+
+# Get firmware version
+
+# Available from driver
+if [ -f /sys/firmware/beepy/fw_version ]; then
+	IFS=. read -r major minor <<< $(cat /sys/firmware/beepy/fw_version)
+
+# Use I2C
+else
+
+	# Module must be unloaded to use i2cget
+	if grep "^$MODULE_NAME " /proc/modules >/dev/null; then
+		rmmod $MODULE_NAME 2>/dev/null \
+			|| echo "warning: $MODULE_NAME failed to unload"
+	fi
+	if ! raw_ver=$(i2cget -y 1 0x1F $VER_REG b); then
+		echo "warning: failed to check firmware version (I2C might not be enabled yet)"
+		exit 0
+	fi
+	if modprobe -n $MODULE_NAME 2>/dev/null; then
+		modprobe $MODULE_NAME 2>/dev/null \
+			|| echo "warning: $MODULE_NAME failed to load"
+	fi
+
+	# Parse firmware version
+	major=${raw_ver:2:1}
+	minor=${raw_ver:3:1}
+fi
+
+# Check firmware version
+# TODO it maybe should not fail if the fw MAJOR is higher than driver MAJOR
+# INCOMPLETE
+#if [ $major -lt $REQ_MAJOR ] || [ $minor -lt $REQ_MINOR ]; then
+#	echo "error: driver requires firmware version $REQ_MAJOR.$REQ_MINOR" \
+#		"(firmware has version $major.$minor)"
+#	echo "update the beepy-fw package and run"
+#	echo "    /sbin/update-beepy-fw"
+#	echo -e "or manually install the firmware release from\n    $RELEASE_PAGE"
+#	exit 1
+#fi
+
+# Check firmware version
+#if [ $minor -lt $SUG_MINOR ]; then
+#	echo "warning: installed firmware version $major.$minor is compatible," \
+#		"but out of date (driver may use features from version $REQ_MAJOR.$SUG_MINOR)"
+#	echo "consider updating the beepy-fw package to $REQ_MAJOR.$SUG_MINOR and run"
+#	echo "    /sbin/update-beepy-fw"
+#	echo -e "or manually install the firmware release from\n    $RELEASE_PAGE"
+#fi
+
+echo "Firmware version $major.$minor passes module requirement"

@@ -1,18 +1,22 @@
-[submodule "keyboard-driver_2.0-1_armhf/module"]
+[submodule "beepy-kbd"]
 	path = beepy-kbd-3.0/module
 	url = https://github.com/HackModsOrg/beepy-kbd
-[submodule "beepy-lcd-1.0/module"]
+[submodule "blepis-kbd"]
+	path = blepis-kbd-3.0/module
+	url = https://github.com/HackModsOrg/beepy-kbd
+    branch = blepis
+[submodule "sharp-drm"]
 	path = sharp-drm-2.0/module
 	url = https://github.com/HackModsOrg/sharp-drm-driver
-[submodule "beepy-symbol-overlay-1.0/module"]
+[submodule "beepy-symbol-overlay"]
 	path = beepy-symbol-overlay-1.2/module
 	url = https://github.com/ardangelo/beepy-symbol-overlay
-[submodule "beepy-tmux-menus/module"]
+[submodule "beepy-tmux-menus"]
 	path = beepy-tmux-menus-1.0/module
 	url = https://github.com/ardangelo/tmux-menus
-[submodule "beepy-gomuks-1.0/module"]
+[submodule "beepy-gomuks"]
 	path = beepy-gomuks-0.3/module
 	url = https://github.com/ardangelo/gomuks
-[submodule "impala-wifi-1.0/module"]
+[submodule "impala-wifi"]
 	path = impala-wifi-0.3/module
 	url = https://github.com/ardangelo/impala
