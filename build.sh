@@ -4,7 +4,7 @@ set -e
 
 #for prod in beepy-fw-* beepy-gomuks-* beepy-kbd-* beepy-poll-* \
 #	beepy-symbol-overlay-* beepy-tmux-menus-* sharp-drm-*; do
-for prod in beepy-kbd-* beepy-poll-* \
+for prod in beepy-kbd-* blepis-kbd-* beepy-poll-* \
 	beepy-symbol-overlay-* beepy-tmux-menus-* sharp-drm-*; do
 
 	if [ ! -d "$prod" ]; then
