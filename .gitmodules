@@ -1,5 +1,5 @@
 [submodule "keyboard-driver_2.0-1_armhf/module"]
-	path = beepy-kbd-2.12/module
+	path = beepy-kbd-3.0/module
 	url = https://github.com/HackModsOrg/beepy-kbd
 [submodule "beepy-lcd-1.0/module"]
 	path = sharp-drm-2.0/module
