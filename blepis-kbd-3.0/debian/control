@@ -1,10 +1,11 @@
-Source: beepy-kbd
+Source: blepis-kbd
 Maintainer: LinaLinn <blepis@0xlina.gay>
 Build-Depends: debhelper (>= 11), dkms
 
-Package: beepy-kbd
+Package: blepis-kbd
 Architecture: armhf arm64
 Depends: ${misc:Depends}, i2c-tools
+Provides: beepy-kbd
 Recommends: beepy-symbol-overlay (>= 1.0)
 Section: embedded
-Description: Keyboard and firmware driver for the Beepy device
+Description: Keyboard and firmware driver for the Blepis device

@@ -1,5 +1,8 @@
-beepy-kbd (3.0-1) bookworm; urgency=medium
+blepis-kbd (3.0-1) bookworm; urgency=medium
 
+  * Added support for FUSB/USB mux control
+  * Added support for vibromotor control
+  * Added support for charger enable and power control
   * Added support for keyboard backlight reading
   * Added support for USB keyboard and USB mouse modes
 
