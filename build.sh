@@ -30,3 +30,27 @@ for prod in beepy-kbd-* blepis-kbd-* beepy-poll-* \
 
 	popd
 done
+
+dpkg-deb --root-owner-group --build blepis-meta
+
+mkdir -p public
+mkdir -p public/pool
+
+for overlay in $(ls blepis-overlay-* ); do
+	version="$(echo $overlay | cut -d- -f3)"
+	file_name="blepis-overlays_${version}_all.deb"
+	url="https://gitlab.com/api/v4/projects/74215598/packages/generic/blepis-overlays/${version}/${file_name}"
+	echo $url
+	curl "$url" -o public/pool/${file_name}
+done
+
+cp *.buildinfo public/pool
+cp *.changes public/pool
+cp *.deb public/pool
+cp *.dsc public/pool
+cp *.tar.gz public/pool
+
+cd public
+apt-ftparchive packages pool > Packages
+cat Packages | gzip -c9  > Packages.gz
+apt-ftparchive release . > Release
